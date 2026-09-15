@@ -1,0 +1,165 @@
+GUIA PRACTICA DE GIT
+=====================
+
+1. Comprobar la instalacion
+---------------------------
+
+    git --version
+
+Si Git no esta instalado en Ubuntu o Debian:
+
+    sudo apt update
+    sudo apt install git
+
+
+2. Configurar Git por primera vez
+----------------------------------
+
+    git config --global user.name "Tu Nombre"
+    git config --global user.email "tu@email.com"
+    git config --global init.defaultBranch main
+
+Ver la configuracion:
+
+    git config --global --list
+
+
+3. Crear un repositorio
+-----------------------
+
+Entra en la carpeta de tu proyecto y ejecuta:
+
+    cd ruta/de/tu/proyecto
+    git init
+
+Esto crea un repositorio Git en esa carpeta.
+
+
+4. Consultar el estado del proyecto
+------------------------------------
+
+    git status
+
+Muestra archivos nuevos, modificados y preparados para el siguiente commit.
+
+
+5. Preparar archivos para guardar
+---------------------------------
+
+Preparar un archivo concreto:
+
+    git add nombre-del-archivo.txt
+
+Preparar todos los archivos modificados:
+
+    git add .
+
+
+6. Crear un commit
+------------------
+
+    git commit -m "Describe aqui el cambio"
+
+Un commit guarda una version del proyecto con un mensaje descriptivo.
+
+Ver el historial:
+
+    git log --oneline
+
+
+7. Trabajar con ramas
+---------------------
+
+Ver las ramas existentes:
+
+    git branch
+
+Crear una rama:
+
+    git branch nombre-de-la-rama
+
+Cambiar a una rama:
+
+    git switch nombre-de-la-rama
+
+Crear una rama y cambiarse a ella directamente:
+
+    git switch -c nombre-de-la-rama
+
+Unir una rama con la rama actual:
+
+    git merge nombre-de-la-rama
+
+
+8. Deshacer cambios
+--------------------
+
+Descartar cambios no guardados de un archivo:
+
+    git restore nombre-del-archivo.txt
+
+Quitar un archivo del area de preparacion, sin borrar sus cambios:
+
+    git restore --staged nombre-del-archivo.txt
+
+Consultar diferencias:
+
+    git diff
+
+
+9. Conectar el proyecto con GitHub
+-----------------------------------
+
+Crear primero un repositorio vacio en GitHub. Luego ejecuta:
+
+    git remote add origin https://github.com/USUARIO/REPOSITORIO.git
+    git branch -M main
+    git push -u origin main
+
+Ver los repositorios remotos configurados:
+
+    git remote -v
+
+
+10. Descargar y enviar cambios
+-------------------------------
+
+Descargar cambios del repositorio remoto y combinarlos:
+
+    git pull
+
+Enviar tus commits:
+
+    git push
+
+Clonar un repositorio existente:
+
+    git clone https://github.com/USUARIO/REPOSITORIO.git
+
+
+11. Flujo de trabajo habitual
+-----------------------------
+
+    git status
+    git add .
+    git commit -m "Describe el cambio"
+    git pull
+    git push
+
+Es recomendable revisar siempre `git status` antes y despues de trabajar.
+
+
+12. Archivo .gitignore
+----------------------
+
+Crea un archivo llamado .gitignore para indicar que archivos no deben guardarse
+con Git. Por ejemplo:
+
+    node_modules/
+    .env
+    __pycache__/
+    *.log
+
+
+Consejo: usa mensajes de commit claros y pequenos. Cada commit deberia
+representar un cambio concreto.
